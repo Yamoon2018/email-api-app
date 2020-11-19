@@ -15,6 +15,9 @@ function App(props) {
 
   }
 
+  const handleChange=(e)=>{
+    console.log(e.target.value);
+  }
 
   return (
     <div className="App">
@@ -34,7 +37,7 @@ function App(props) {
           <textarea name="email_body" />
           <p></p>
           Email Status
-          <select onChange={handleChange} name="email_status" value={email_status_form} >          
+          <select onChange={handleChange} name="email_status" value={email_status} >          
           <option value="all">Send one email to all receievers</option>
           <option value="each">Send one email to each receiever</option>          
         </select>
