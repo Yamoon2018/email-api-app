@@ -20,7 +20,9 @@ class App extends Component {
      console.log("value=="+e.target.value); 
      console.log("name=="+e.target.name); 
      console.log(this.state);
-     axios.post('http://localhost:4000/app/send_gmail', this.state);
+     //break;
+     //axios.post('http://localhost:4000/app/send_gmail', this.state);
+
 
   }
 
