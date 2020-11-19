@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import axios from 'axios';
 import './App.css';
+import { logDOM } from '@testing-library/react';
 
 class App extends Component {
   constructor(props){
@@ -21,7 +22,14 @@ class App extends Component {
      console.log("name=="+e.target.name); 
      console.log(this.state);
      //break;
-     axios.post('http://localhost:4000/app/send_gmail', this.state);
+     axios.post('http://localhost:4000/app/send_gmail', this.state)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+     ;
 
 
   }
