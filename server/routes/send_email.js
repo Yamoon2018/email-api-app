@@ -69,6 +69,6 @@ module.exports=function send_email_db(req, res){
       
       email_counter_start +=1;
     }
-    send_DB(req, res);
+    //send_DB(req, res);
   }
   

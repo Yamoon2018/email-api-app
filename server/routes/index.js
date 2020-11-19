@@ -4,6 +4,7 @@ const router = express.Router();
 const send_email_smtp = require('./send_email');
 
 router.post('/send_gmail', (req, res)=>{
+    console.log(req.body);
     send_email_smtp(req);
     //const new_email_template = new email_template({
         // var sender_name= JSON.stringify(req.body.sender_name);
