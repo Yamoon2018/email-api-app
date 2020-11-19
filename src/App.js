@@ -1,54 +1,104 @@
-import React, { useState, useEffect} from 'react';
+import React, { Component} from 'react';
 import './App.css';
 
-function App(props) {
-  const [sender_name, setSenderName] = useState("");
-  const [sender_email, setSenderEmail] = useState("");
-  const [receiver_name, setReceiverName] = useState("");
-  const [receiver_email, setReceiverEmail] = useState("");
-  const [email_subject, setEmailSubject] = useState("");
-  const [email_body, setEmailBody] = useState("");
-  const [email_status, setEmailStatus] = useState("");
-
-  const handleSubmit=(e)=>{
-     console.log(e.target.value); 
+class App extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+      sender_name:'',
+      sender_email:'',
+      receiver_name:'',
+      receiver_email:'',
+      email_subject:'',
+      email_body:'',
+      email_status:''
+    }
+  }
+  
+  handleSubmit=(e)=>{
+     console.log("value=="+e.target.value); 
+     console.log("name=="+e.target.name); 
+     console.log(this.state);
 
   }
 
-  const handleChange=(e)=>{
-    console.log(e.target.value);
+  handle_sender_name=(e)=>{
+    this.setState({
+      sender_name: e.target.value
+    })
   }
 
-  return (
-    <div className="App">
-      <header className="App-header">
-      <form onSubmit={handleSubmit} method="post">
-          Sender's Name<input placeholder="Sender's name..." type="text" name="sender_name" /> 
-          <p></p>
-          Sender's Email<input placeholder="Sender's email..." type="text" name="sender_email"  />
-          <p></p>
-          Receiever's Name<input placeholder="Receiver's name..." type="text" name="receiver_name" /> 
-          <p></p>
-          Receiever's Email(s)<input placeholder="Receiver's Email.." type="text" name="receiver_email" />
-          <p></p>
-          Subject <input placeholder="Subject..." type="text" name="email_subject" /> 
-          <p></p>
-          Message          
-          <textarea name="email_body" />
-          <p></p>
-          Email Status
-          <select onChange={handleChange} name="email_status" value={email_status} >          
-          <option value="all">Send one email to all receievers</option>
-          <option value="each">Send one email to each receiever</option>          
-        </select>
-          <p></p>
-          
-          <button name="btn_sendEmail" value ="btn_sendEmail">Send Email</button>
-          
-          </form>
-      </header>
-    </div>
-  );
+  handle_sender_email=(e)=>{
+    this.setState({
+      sender_email: e.target.value
+    })
+  }
+
+  handle_receiver_name=(e)=>{
+    this.setState({
+      receiver_name: e.target.value
+    })
+  }
+
+  handle_receiver_email=(e)=>{
+    this.setState({
+      receiver_email: e.target.value
+    })
+  }
+
+  handle_email_subject=(e)=>{
+    this.setState({
+      email_subject: e.target.value
+    })
+  }
+
+  handle_email_body=(e)=>{
+    this.setState({
+      email_body: e.target.value
+    })
+  }
+
+  handle_email_status=(e)=>{
+    this.setState({
+      email_status: e.target.value
+    })
+  }
+
+
+
+  render(){
+
+      return (
+        <div className="App">
+          <header className="App-header">
+          <form onSubmit={handleSubmit} >
+              Sender's Name<input onChange={handle_sender_name} placeholder="Sender's name..." type="text" name="sender_name" /> 
+              <p></p>
+              Sender's Email<input onChange={handle_sender_email} placeholder="Sender's email..." type="text" name="sender_email"  />
+              <p></p>
+              Receiever's Name<input onChange={handle_receiver_name} placeholder="Receiver's name..." type="text" name="receiver_name" /> 
+              <p></p>
+              Receiever's Email(s)<input onChange={handle_receiver_email} placeholder="Receiver's Email.." type="text" name="receiver_email" />
+              <p></p>
+              Subject <input onChange={handle_email_subject} placeholder="Subject..." type="text" name="email_subject" /> 
+              <p></p>
+              Message          
+              <textarea onChange={handle_email_body} name="email_body" />
+              <p></p>
+              Email Status
+              <select onChange={handle_email_status} name="email_status" value={email_status} >          
+              <option value="all">Send one email to all receievers</option>
+              <option value="each">Send one email to each receiever</option>          
+            </select>
+              <p></p>
+              
+              <button name="btn_sendEmail" value ="btn_sendEmail">Send Email</button>
+              
+              </form>
+          </header>
+        </div>
+      )
+  };
 }
 
 export default App;
