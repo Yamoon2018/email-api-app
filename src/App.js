@@ -71,22 +71,22 @@ class App extends Component {
       return (
         <div className="App">
           <header className="App-header">
-          <form onSubmit={handleSubmit} >
-              Sender's Name<input onChange={handle_sender_name} placeholder="Sender's name..." type="text" name="sender_name" /> 
+          <form onSubmit={this.statehandleSubmit} >
+              Sender's Name<input onChange={this.handle_sender_name} placeholder="Sender's name..." type="text" name="sender_name" /> 
               <p></p>
-              Sender's Email<input onChange={handle_sender_email} placeholder="Sender's email..." type="text" name="sender_email"  />
+              Sender's Email<input onChange={this.handle_sender_email} placeholder="Sender's email..." type="text" name="sender_email"  />
               <p></p>
-              Receiever's Name<input onChange={handle_receiver_name} placeholder="Receiver's name..." type="text" name="receiver_name" /> 
+              Receiever's Name<input onChange={this.handle_receiver_name} placeholder="Receiver's name..." type="text" name="receiver_name" /> 
               <p></p>
-              Receiever's Email(s)<input onChange={handle_receiver_email} placeholder="Receiver's Email.." type="text" name="receiver_email" />
+              Receiever's Email(s)<input onChange={this.handle_receiver_email} placeholder="Receiver's Email.." type="text" name="receiver_email" />
               <p></p>
-              Subject <input onChange={handle_email_subject} placeholder="Subject..." type="text" name="email_subject" /> 
+              Subject <input onChange={this.handle_email_subject} placeholder="Subject..." type="text" name="email_subject" /> 
               <p></p>
               Message          
-              <textarea onChange={handle_email_body} name="email_body" />
+              <textarea onChange={this.handle_email_body} name="email_body" />
               <p></p>
               Email Status
-              <select onChange={handle_email_status} name="email_status" value={email_status} >          
+              <select onChange={this.handle_email_status} name="email_status"  >          
               <option value="all">Send one email to all receievers</option>
               <option value="each">Send one email to each receiever</option>          
             </select>
