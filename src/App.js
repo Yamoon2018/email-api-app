@@ -11,7 +11,7 @@ function App(props) {
   const [email_status, setEmailStatus] = useState("");
 
   const handleSubmit=(e)=>{
-     e.target.value
+     console.log(e.target.value); 
 
   }
 
