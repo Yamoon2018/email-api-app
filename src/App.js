@@ -21,12 +21,13 @@ class App extends Component {
      console.log("name=="+e.target.name); 
      console.log(this.state);
      //break;
-     //axios.post('http://localhost:4000/app/send_gmail', this.state);
+     axios.post('http://localhost:4000/app/send_gmail', this.state);
 
 
   }
 
   handle_sender_name=(e)=>{
+    console.log(this.state);
     this.setState({
       sender_name: e.target.value
     })
