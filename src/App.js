@@ -23,7 +23,7 @@ class App extends Component {
      //break;
      
 
-     axios.post('http://localhost:4000/app/send_gmail', this.state)
+     axios.post('http://localhost:4000/app/send_ggmail', this.state)
       .then(res => {
         console.log(res);
       })
