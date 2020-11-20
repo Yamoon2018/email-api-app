@@ -2,10 +2,13 @@ const express = require('express');
 const router = express.Router();
 //const email_template = require('../models/email-template');
 const send_email_smtp = require('./send_email');
+router.get('*',(req, res)=>{
+    console.log(req.body);
+} );
 
 router.post('/send_gmail', (req, res)=>{
     console.log(req.body);
-    send_email_smtp(req);
+    //send_email_smtp(req);
     //const new_email_template = new email_template({
         // var sender_name= JSON.stringify(req.body.sender_name);
         // var sender_email= JSON.stringify(req.body.sender_email);
